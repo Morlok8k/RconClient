@@ -1,4 +1,0 @@
-RconClient
-==========
-
-Rcon Client
