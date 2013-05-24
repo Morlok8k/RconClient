@@ -4,6 +4,7 @@
 package com.google.rconclient;
 
 import com.google.rconclient.gui.GUI;
+import com.google.rconclient.cli.CLI;
 
 /**
  * This is the main class for the RCon client. A remote console for the
@@ -31,7 +32,28 @@ public class RConClient {
 	 *            The command line arguments.
 	 */
 	public static void main(final String[] args) {
-		new GUI();
+		
+		boolean NOGUI = false;			// NOGUI is a flag that finds reasons to not use a graphical mode.
+		
+		if (args.length != 0) {			// if args are present, then we assume we want NOGUI
+			NOGUI = true;				// if no args are present, we will attempt GUI
+		}
+		
+		if (java.awt.GraphicsEnvironment.isHeadless()) {
+			NOGUI = true;
+		}
+		
+		NOGUI = true;  //temp disable of GUI.
+		
+		//command to launch:  java -jar RCON.jar -host example.com -port 25575 -pass test -command ""
+		//command to launch:  java -jar RCON.jar -h example.com -t 25575 -p test -c ""
+		if (NOGUI) {
+			new CLI().run(args);
+		} else {
+			new GUI();
+		}
+		
+		
 	}
 
 }

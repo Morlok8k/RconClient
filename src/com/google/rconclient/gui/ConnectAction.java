@@ -31,15 +31,21 @@ public class ConnectAction extends AbstractAction {
 	/**
 	 * The resource bundle of the messages.
 	 */
-	private static final ResourceBundle MESSAGES = new Messages(ConnectAction.class);
+	private static final ResourceBundle MESSAGES = new Messages(
+			ConnectAction.class);
 
-	private static final String MSG_CLASS_NAME = ConnectAction.class.getSimpleName();
+	private static final String MSG_CLASS_NAME = ConnectAction.class
+			.getSimpleName();
 	private static final String MSG_NAME = MSG_CLASS_NAME + ".name";
 	private static final String MSG_MNEMONIC = MSG_CLASS_NAME + ".mnemonic";
-	private static final String MSG_AUTH_EXCEPTION_TITLE = MSG_CLASS_NAME + ".authenticationException.title";
-	private static final String MSG_AUTH_EXCEPTION_MESSAGE = MSG_CLASS_NAME + ".authenticationException.message";
-	private static final String MSG_IOEXCEPTION_TITLE = MSG_CLASS_NAME + ".ioException.title";
-	private static final String MSG_IOEXCEPTION_MESSAGE = MSG_CLASS_NAME + ".ioException.message";
+	private static final String MSG_AUTH_EXCEPTION_TITLE = MSG_CLASS_NAME
+			+ ".authenticationException.title";
+	private static final String MSG_AUTH_EXCEPTION_MESSAGE = MSG_CLASS_NAME
+			+ ".authenticationException.message";
+	private static final String MSG_IOEXCEPTION_TITLE = MSG_CLASS_NAME
+			+ ".ioException.title";
+	private static final String MSG_IOEXCEPTION_MESSAGE = MSG_CLASS_NAME
+			+ ".ioException.message";
 
 	/**
 	 * The container with the global objects.
@@ -56,12 +62,14 @@ public class ConnectAction extends AbstractAction {
 		super();
 		this.globals = globals;
 		putValue(NAME, MESSAGES.getString(MSG_NAME));
-		putValue(MNEMONIC_KEY, KeyEventUtil.getKeyCode(MESSAGES.getString(MSG_MNEMONIC)));
+		putValue(MNEMONIC_KEY,
+				KeyEventUtil.getKeyCode(MESSAGES.getString(MSG_MNEMONIC)));
 	}
 
 	@Override
 	public void actionPerformed(final ActionEvent event) {
-		final ConnectionDialog dialog = new ConnectionDialog((JComponent) event.getSource());
+		final ConnectionDialog dialog = new ConnectionDialog(
+				(JComponent) event.getSource());
 		final int selectedValue = dialog.getOption();
 		switch (selectedValue) {
 		case JOptionPane.OK_OPTION:
@@ -81,14 +89,18 @@ public class ConnectAction extends AbstractAction {
 				if (password != null) {
 					Arrays.fill(password, 'x');
 				}
-				JOptionPane.showMessageDialog((JComponent) event.getSource(), MESSAGES.getString(MSG_IOEXCEPTION_MESSAGE),
-						MESSAGES.getString(MSG_IOEXCEPTION_TITLE), JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog((JComponent) event.getSource(),
+						MESSAGES.getString(MSG_IOEXCEPTION_MESSAGE),
+						MESSAGES.getString(MSG_IOEXCEPTION_TITLE),
+						JOptionPane.ERROR_MESSAGE);
 			} catch (final AuthenticationException e) {
 				if (password != null) {
 					Arrays.fill(password, 'x');
 				}
-				JOptionPane.showMessageDialog((JComponent) event.getSource(), MESSAGES.getString(MSG_AUTH_EXCEPTION_MESSAGE),
-						MESSAGES.getString(MSG_AUTH_EXCEPTION_TITLE), JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog((JComponent) event.getSource(),
+						MESSAGES.getString(MSG_AUTH_EXCEPTION_MESSAGE),
+						MESSAGES.getString(MSG_AUTH_EXCEPTION_TITLE),
+						JOptionPane.ERROR_MESSAGE);
 			}
 			break;
 

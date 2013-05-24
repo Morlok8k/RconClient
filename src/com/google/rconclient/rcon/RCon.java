@@ -793,7 +793,7 @@ public class RCon {
 	 * @throws IncorrectRequestIdException
 	 *             The request id was not as expected.
 	 */
-	private String send(final String payload) throws IOException, IncorrectRequestIdException {
+	public String send(final String payload) throws IOException, IncorrectRequestIdException {
 		final String response = send(COMMAND_TYPE, payload);
 		return response;
 	}
