@@ -18,6 +18,11 @@ import com.google.rconclient.rcon.RCon;
 public class Globals {
 
 	/**
+	 * Program Version
+	 */
+	public String ver = "1.2";
+	
+	/**
 	 * The connection to the server.
 	 */
 	private RCon connection = null;
