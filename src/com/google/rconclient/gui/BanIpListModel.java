@@ -27,8 +27,10 @@ public class BanIpListModel extends AbstractUserListModel {
 	}
 
 	@Override
-	protected String[] getList(final RCon connection) throws IOException, AuthenticationException {
-		final String[] users = connection != null ? connection.banIPList() : new String[0];
+	protected String[] getList(final RCon connection) throws IOException,
+			AuthenticationException {
+		final String[] users = connection != null ? connection.banIPList()
+				: new String[0];
 		return users;
 	}
 

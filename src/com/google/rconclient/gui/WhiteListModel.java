@@ -27,8 +27,10 @@ public class WhiteListModel extends AbstractUserListModel {
 	}
 
 	@Override
-	protected String[] getList(final RCon connection) throws IOException, AuthenticationException {
-		final String[] users = connection != null ? connection.whitelist() : new String[0];
+	protected String[] getList(final RCon connection) throws IOException,
+			AuthenticationException {
+		final String[] users = connection != null ? connection.whitelist()
+				: new String[0];
 		return users;
 	}
 

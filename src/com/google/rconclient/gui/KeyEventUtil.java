@@ -23,10 +23,12 @@ public abstract class KeyEventUtil {
 	 */
 	public static int getKeyCode(final String name) {
 		if (name == null) {
-			final NullPointerException exception = new NullPointerException("No name defined");
+			final NullPointerException exception = new NullPointerException(
+					"No name defined");
 			throw exception;
 		} else if (!name.startsWith("VK_")) {
-			final IllegalArgumentException exception = new IllegalArgumentException("Illegal virtual key name: " + name);
+			final IllegalArgumentException exception = new IllegalArgumentException(
+					"Illegal virtual key name: " + name);
 			throw exception;
 		}
 
@@ -35,15 +37,16 @@ public abstract class KeyEventUtil {
 			final Field vkField = KeyEvent.class.getField(name);
 			code = vkField.getInt(null);
 		} catch (final SecurityException e) {
-			final IllegalArgumentException exception = new IllegalArgumentException("No access allowed to virtual key name: "
-					+ name, e);
+			final IllegalArgumentException exception = new IllegalArgumentException(
+					"No access allowed to virtual key name: " + name, e);
 			throw exception;
 		} catch (final NoSuchFieldException e) {
-			final IllegalArgumentException exception = new IllegalArgumentException("No such virtual key name: " + name, e);
+			final IllegalArgumentException exception = new IllegalArgumentException(
+					"No such virtual key name: " + name, e);
 			throw exception;
 		} catch (final IllegalAccessException e) {
-			final IllegalArgumentException exception = new IllegalArgumentException("Illegal access to virtual key name: " + name,
-					e);
+			final IllegalArgumentException exception = new IllegalArgumentException(
+					"Illegal access to virtual key name: " + name, e);
 			throw exception;
 		}
 

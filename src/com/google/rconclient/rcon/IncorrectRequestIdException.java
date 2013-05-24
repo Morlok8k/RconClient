@@ -34,7 +34,8 @@ public class IncorrectRequestIdException extends AuthenticationException {
 	 * @param cause
 	 *            The original cause of this exception.
 	 */
-	public IncorrectRequestIdException(final int requestId, final Throwable cause) {
+	public IncorrectRequestIdException(final int requestId,
+			final Throwable cause) {
 		super("Request id:" + requestId, cause);
 	}
 

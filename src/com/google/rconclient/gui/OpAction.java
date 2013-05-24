@@ -59,7 +59,8 @@ public class OpAction extends AbstractAction {
 		this.list = list;
 
 		putValue(NAME, MESSAGES.getString(MSG_NAME));
-		putValue(MNEMONIC_KEY, KeyEventUtil.getKeyCode(MESSAGES.getString(MSG_MNEMONIC)));
+		putValue(MNEMONIC_KEY,
+				KeyEventUtil.getKeyCode(MESSAGES.getString(MSG_MNEMONIC)));
 	}
 
 	@Override

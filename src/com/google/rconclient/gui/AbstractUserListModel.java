@@ -49,21 +49,25 @@ public abstract class AbstractUserListModel extends AbstractListModel<String> {
 				final String[] users = get();
 				update(users);
 			} catch (final InterruptedException e) {
-				JOptionPane.showMessageDialog(globals.getFrame(), MESSAGES.getString(MSG_INTERRUPTED_MESSAGE),
-						MESSAGES.getString(MSG_INTERRUPTED_TITLE), JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(globals.getFrame(),
+						MESSAGES.getString(MSG_INTERRUPTED_MESSAGE),
+						MESSAGES.getString(MSG_INTERRUPTED_TITLE),
+						JOptionPane.ERROR_MESSAGE);
 			} catch (final ExecutionException e) {
 				try {
-					
+
 					if (globals.getConnection() != null) {
 						globals.getConnection().close();
 					}
 					globals.setConnection(null);
 				} catch (IOException e1) {
-					//e1.printStackTrace();
+					// e1.printStackTrace();
 				}
 				if (globals.getConnection() != null) {
-				JOptionPane.showMessageDialog(globals.getFrame(), MESSAGES.getString(MSG_EXCEPTION_MESSAGE),
-						MESSAGES.getString(MSG_EXCEPTION_TITLE), JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(globals.getFrame(),
+							MESSAGES.getString(MSG_EXCEPTION_MESSAGE),
+							MESSAGES.getString(MSG_EXCEPTION_TITLE),
+							JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		}
@@ -95,14 +99,20 @@ public abstract class AbstractUserListModel extends AbstractListModel<String> {
 	/**
 	 * The resource bundle of the messages.
 	 */
-	private static final ResourceBundle MESSAGES = new Messages(AbstractUserListModel.class);
+	private static final ResourceBundle MESSAGES = new Messages(
+			AbstractUserListModel.class);
 
-	private static final String MSG_CLASS_NAME = AbstractUserListModel.class.getSimpleName();
+	private static final String MSG_CLASS_NAME = AbstractUserListModel.class
+			.getSimpleName();
 
-	private static final String MSG_INTERRUPTED_TITLE = MSG_CLASS_NAME + ".interrupted.title";
-	private static final String MSG_INTERRUPTED_MESSAGE = MSG_CLASS_NAME + ".interrupted.message";
-	private static final String MSG_EXCEPTION_TITLE = MSG_CLASS_NAME + ".exception.title";
-	private static final String MSG_EXCEPTION_MESSAGE = MSG_CLASS_NAME + ".exception.message";
+	private static final String MSG_INTERRUPTED_TITLE = MSG_CLASS_NAME
+			+ ".interrupted.title";
+	private static final String MSG_INTERRUPTED_MESSAGE = MSG_CLASS_NAME
+			+ ".interrupted.message";
+	private static final String MSG_EXCEPTION_TITLE = MSG_CLASS_NAME
+			+ ".exception.title";
+	private static final String MSG_EXCEPTION_MESSAGE = MSG_CLASS_NAME
+			+ ".exception.message";
 	/**
 	 * The container with the global objects.
 	 */
@@ -173,6 +183,7 @@ public abstract class AbstractUserListModel extends AbstractListModel<String> {
 		fireContentsChanged(this, 0, getSize() - 1);
 	}
 
-	protected abstract String[] getList(RCon connection) throws IOException, AuthenticationException;
+	protected abstract String[] getList(RCon connection) throws IOException,
+			AuthenticationException;
 
 }

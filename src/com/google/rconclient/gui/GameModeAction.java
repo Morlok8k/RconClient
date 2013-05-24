@@ -30,9 +30,11 @@ public class GameModeAction extends AbstractAction {
 	/**
 	 * The resource bundle of the messages.
 	 */
-	private static final ResourceBundle MESSAGES = new Messages(GameModeAction.class);
+	private static final ResourceBundle MESSAGES = new Messages(
+			GameModeAction.class);
 
-	private static final String MSG_CLASS_NAME = GameModeAction.class.getSimpleName();
+	private static final String MSG_CLASS_NAME = GameModeAction.class
+			.getSimpleName();
 	private static final String MSG_NAME = MSG_CLASS_NAME + ".name";
 	private static final String MSG_MNEMONIC = MSG_CLASS_NAME + ".mnemonic";
 
@@ -60,7 +62,8 @@ public class GameModeAction extends AbstractAction {
 		this.list = list;
 
 		putValue(NAME, MESSAGES.getString(MSG_NAME));
-		putValue(MNEMONIC_KEY, KeyEventUtil.getKeyCode(MESSAGES.getString(MSG_MNEMONIC)));
+		putValue(MNEMONIC_KEY,
+				KeyEventUtil.getKeyCode(MESSAGES.getString(MSG_MNEMONIC)));
 	}
 
 	@Override

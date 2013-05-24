@@ -29,13 +29,17 @@ public class DisconnectAction extends AbstractAction {
 	/**
 	 * The resource bundle of the messages.
 	 */
-	private static final ResourceBundle MESSAGES = new Messages(DisconnectAction.class);
+	private static final ResourceBundle MESSAGES = new Messages(
+			DisconnectAction.class);
 
-	private static final String MSG_CLASS_NAME = DisconnectAction.class.getSimpleName();
+	private static final String MSG_CLASS_NAME = DisconnectAction.class
+			.getSimpleName();
 	private static final String MSG_NAME = MSG_CLASS_NAME + ".name";
 	private static final String MSG_MNEMONIC = MSG_CLASS_NAME + ".mnemonic";
-	private static final String MSG_IOEXCEPTION_TITLE = MSG_CLASS_NAME + ".ioException.title";
-	private static final String MSG_IOEXCEPTION_MESSAGE = MSG_CLASS_NAME + ".ioException.message";
+	private static final String MSG_IOEXCEPTION_TITLE = MSG_CLASS_NAME
+			+ ".ioException.title";
+	private static final String MSG_IOEXCEPTION_MESSAGE = MSG_CLASS_NAME
+			+ ".ioException.message";
 
 	/**
 	 * The container with the global objects.
@@ -52,7 +56,8 @@ public class DisconnectAction extends AbstractAction {
 		super();
 		this.globals = globals;
 		putValue(NAME, MESSAGES.getString(MSG_NAME));
-		putValue(MNEMONIC_KEY, KeyEventUtil.getKeyCode(MESSAGES.getString(MSG_MNEMONIC)));
+		putValue(MNEMONIC_KEY,
+				KeyEventUtil.getKeyCode(MESSAGES.getString(MSG_MNEMONIC)));
 	}
 
 	@Override
@@ -63,8 +68,10 @@ public class DisconnectAction extends AbstractAction {
 				connection.close();
 			}
 		} catch (final IOException e) {
-			JOptionPane.showMessageDialog((JComponent) event.getSource(), MESSAGES.getString(MSG_IOEXCEPTION_MESSAGE),
-					MESSAGES.getString(MSG_IOEXCEPTION_TITLE), JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog((JComponent) event.getSource(),
+					MESSAGES.getString(MSG_IOEXCEPTION_MESSAGE),
+					MESSAGES.getString(MSG_IOEXCEPTION_TITLE),
+					JOptionPane.ERROR_MESSAGE);
 		} finally {
 			globals.setConnection(null);
 		}

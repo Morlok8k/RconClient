@@ -24,9 +24,11 @@ public class StartServerAction extends AbstractAction {
 	/**
 	 * The resource bundle of the messages.
 	 */
-	private static final ResourceBundle MESSAGES = new Messages(StartServerAction.class);
+	private static final ResourceBundle MESSAGES = new Messages(
+			StartServerAction.class);
 
-	private static final String MSG_CLASS_NAME = StartServerAction.class.getSimpleName();
+	private static final String MSG_CLASS_NAME = StartServerAction.class
+			.getSimpleName();
 	private static final String MSG_NAME = MSG_CLASS_NAME + ".name";
 	private static final String MSG_MNEMONIC = MSG_CLASS_NAME + ".mnemonic";
 
@@ -46,7 +48,8 @@ public class StartServerAction extends AbstractAction {
 		super();
 		this.globals = globals;
 		putValue(NAME, MESSAGES.getString(MSG_NAME));
-		putValue(MNEMONIC_KEY, KeyEventUtil.getKeyCode(MESSAGES.getString(MSG_MNEMONIC)));
+		putValue(MNEMONIC_KEY,
+				KeyEventUtil.getKeyCode(MESSAGES.getString(MSG_MNEMONIC)));
 	}
 
 	@Override

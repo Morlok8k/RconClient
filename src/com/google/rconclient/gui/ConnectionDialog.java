@@ -40,9 +40,11 @@ public class ConnectionDialog {
 	/**
 	 * The resource bundle of the messages.
 	 */
-	private static final ResourceBundle MESSAGES = new Messages(ConnectionDialog.class);
+	private static final ResourceBundle MESSAGES = new Messages(
+			ConnectionDialog.class);
 
-	private static final String MSG_CLASS_NAME = ConnectionDialog.class.getSimpleName();
+	private static final String MSG_CLASS_NAME = ConnectionDialog.class
+			.getSimpleName();
 	private static final String MSG_HOST = MSG_CLASS_NAME + ".host";
 	private static final String MSG_PORT = MSG_CLASS_NAME + ".port";
 	private static final String MSG_PASSWORD = MSG_CLASS_NAME + ".password";
@@ -113,7 +115,8 @@ public class ConnectionDialog {
 		panel.add(portField, constraints);
 
 		// The password label and field.
-		final JLabel passwordLable = new JLabel(MESSAGES.getString(MSG_PASSWORD));
+		final JLabel passwordLable = new JLabel(
+				MESSAGES.getString(MSG_PASSWORD));
 		constraints.gridx = 0;
 		constraints.gridy = 2;
 		constraints.anchor = GridBagConstraints.LINE_END;
@@ -163,9 +166,11 @@ public class ConnectionDialog {
 	 * @return The option that was used to close the dialog.
 	 */
 	public int getOption() {
-		final Preferences preferences = Preferences.userNodeForPackage(this.getClass());
+		final Preferences preferences = Preferences.userNodeForPackage(this
+				.getClass());
 		hostField.setText(preferences.get(PREF_KEY_HOST, ""));
-		portField.setText(Integer.toString(preferences.getInt(PREF_KEY_PORT, 25575)));
+		portField.setText(Integer.toString(preferences.getInt(PREF_KEY_PORT,
+				25575)));
 		dialog.setVisible(true);
 		final Object selectedValue = pane.getValue();
 		if (selectedValue == null) {
@@ -175,7 +180,8 @@ public class ConnectionDialog {
 			switch (selectedInteger) {
 			case JOptionPane.OK_OPTION:
 				preferences.put(PREF_KEY_HOST, hostField.getText());
-				preferences.putInt(PREF_KEY_PORT, Integer.parseInt(portField.getText()));
+				preferences.putInt(PREF_KEY_PORT,
+						Integer.parseInt(portField.getText()));
 				return selectedInteger.intValue();
 
 			case JOptionPane.CANCEL_OPTION:

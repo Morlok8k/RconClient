@@ -72,7 +72,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public RCon(final String host, final int port, final char[] password) throws IOException, AuthenticationException {
+	public RCon(final String host, final int port, final char[] password)
+			throws IOException, AuthenticationException {
 		super();
 		final Random random = new Random();
 		requestId = random.nextInt();
@@ -103,7 +104,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void ban(final String player) throws IOException, AuthenticationException {
+	public void ban(final String player) throws IOException,
+			AuthenticationException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("ban");
 		sb.append(' ').append(player);
@@ -122,7 +124,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void banIp(final String host) throws AuthenticationException, IOException {
+	public void banIp(final String host) throws AuthenticationException,
+			IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("ban-ip");
 		sb.append(' ').append(host);
@@ -146,7 +149,8 @@ public class RCon {
 		final String response = send(sb.toString());
 		final int colonPosition = response.indexOf(':');
 		final String ipResponse = response.substring(colonPosition + 1).trim();
-		final String[] ips = "".equals(ipResponse) ? new String[0] : ipResponse.split(",\\s+");
+		final String[] ips = "".equals(ipResponse) ? new String[0] : ipResponse
+				.split(",\\s+");
 		return ips;
 	}
 
@@ -164,8 +168,10 @@ public class RCon {
 		sb.append("banlist");
 		final String response = send(sb.toString());
 		final int colonPosition = response.indexOf(':');
-		final String userResponse = response.substring(colonPosition + 1).trim();
-		final String[] users = "".equals(userResponse) ? new String[0] : userResponse.split(",\\s+");
+		final String userResponse = response.substring(colonPosition + 1)
+				.trim();
+		final String[] users = "".equals(userResponse) ? new String[0]
+				: userResponse.split(",\\s+");
 		return users;
 	}
 
@@ -194,7 +200,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void deOp(final String player) throws AuthenticationException, IOException {
+	public void deOp(final String player) throws AuthenticationException,
+			IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("deop");
 		sb.append(' ').append(player);
@@ -218,7 +225,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void gameMode(final String player, final GameMode mode) throws AuthenticationException, IOException {
+	public void gameMode(final String player, final GameMode mode)
+			throws AuthenticationException, IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("gamemode");
 		sb.append(' ').append(mode.getNumber());
@@ -238,7 +246,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void give(final String player, final int dataValue) throws AuthenticationException, IOException {
+	public void give(final String player, final int dataValue)
+			throws AuthenticationException, IOException {
 		give(player, dataValue, 1);
 	}
 
@@ -256,7 +265,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void give(final String player, final int dataValue, final int amount) throws AuthenticationException, IOException {
+	public void give(final String player, final int dataValue, final int amount)
+			throws AuthenticationException, IOException {
 		give(player, dataValue, amount, 0);
 	}
 
@@ -277,7 +287,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void give(final String player, final int dataValue, final int amount, final int damage) throws AuthenticationException,
+	public void give(final String player, final int dataValue,
+			final int amount, final int damage) throws AuthenticationException,
 			IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("give");
@@ -299,7 +310,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void kick(final String player) throws AuthenticationException, IOException {
+	public void kick(final String player) throws AuthenticationException,
+			IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("kick");
 		sb.append(' ').append(player);
@@ -321,8 +333,10 @@ public class RCon {
 		sb.append("list");
 		final String response = send(sb.toString());
 		final int colonPosition = response.indexOf(':');
-		final String userResponse = response.substring(colonPosition + 1).trim();
-		final String[] users = "".equals(userResponse) ? new String[0] : userResponse.split(",\\s+");
+		final String userResponse = response.substring(colonPosition + 1)
+				.trim();
+		final String[] users = "".equals(userResponse) ? new String[0]
+				: userResponse.split(",\\s+");
 		return users;
 	}
 
@@ -336,7 +350,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void op(final String player) throws AuthenticationException, IOException {
+	public void op(final String player) throws AuthenticationException,
+			IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("op");
 		sb.append(' ').append(player);
@@ -354,7 +369,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void pardon(final String player) throws AuthenticationException, IOException {
+	public void pardon(final String player) throws AuthenticationException,
+			IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("pardon");
 		sb.append(' ').append(player);
@@ -373,7 +389,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void pardonIp(final String host) throws AuthenticationException, IOException {
+	public void pardonIp(final String host) throws AuthenticationException,
+			IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("pardon-ip");
 		sb.append(' ').append(host);
@@ -438,7 +455,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void say(final String message) throws AuthenticationException, IOException {
+	public void say(final String message) throws AuthenticationException,
+			IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("say");
 		sb.append(' ').append(message);
@@ -474,7 +492,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void tell(final String player, final String message) throws AuthenticationException, IOException {
+	public void tell(final String player, final String message)
+			throws AuthenticationException, IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("tell");
 		sb.append(' ').append(player);
@@ -496,7 +515,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void timeAdd(final int amount) throws AuthenticationException, IOException {
+	public void timeAdd(final int amount) throws AuthenticationException,
+			IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("time");
 		sb.append(' ').append("add");
@@ -517,7 +537,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void timeSet(final int time) throws AuthenticationException, IOException {
+	public void timeSet(final int time) throws AuthenticationException,
+			IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("time");
 		sb.append(' ').append("set");
@@ -564,7 +585,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void tp(final String player, final String targetPlayer) throws AuthenticationException, IOException {
+	public void tp(final String player, final String targetPlayer)
+			throws AuthenticationException, IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("tp");
 		sb.append(' ').append(player);
@@ -588,8 +610,10 @@ public class RCon {
 		sb.append(' ').append("list");
 		final String response = send(sb.toString());
 		final int colonPosition = response.indexOf(':');
-		final String userResponse = response.substring(colonPosition + 1).trim();
-		final String[] users = "".equals(userResponse) ? new String[0] : userResponse.split(",?\\s+");
+		final String userResponse = response.substring(colonPosition + 1)
+				.trim();
+		final String[] users = "".equals(userResponse) ? new String[0]
+				: userResponse.split(",?\\s+");
 		return users;
 	}
 
@@ -603,7 +627,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void whitelistAdd(final String player) throws IOException, AuthenticationException {
+	public void whitelistAdd(final String player) throws IOException,
+			AuthenticationException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("whitelist");
 		sb.append(' ').append("add");
@@ -677,7 +702,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void whitelistRemove(final String player) throws IOException, AuthenticationException {
+	public void whitelistRemove(final String player) throws IOException,
+			AuthenticationException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("whitelist");
 		sb.append(' ').append("remove");
@@ -700,7 +726,8 @@ public class RCon {
 	 * @throws AuthenticationException
 	 *             The authentication using the password failed.
 	 */
-	public void xp(final String player, final int amount) throws AuthenticationException, IOException {
+	public void xp(final String player, final int amount)
+			throws AuthenticationException, IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("xp");
 		sb.append(' ').append(player);
@@ -724,7 +751,8 @@ public class RCon {
 	 * @throws IncorrectRequestIdException
 	 *             The request id was not as expected.
 	 */
-	private byte[] send(final int type, final byte[] payload) throws IOException, IncorrectRequestIdException {
+	private byte[] send(final int type, final byte[] payload)
+			throws IOException, IncorrectRequestIdException {
 		final byte[] receivedPayload;
 		synchronized (syncObject) {
 			// Send the command.
@@ -743,7 +771,8 @@ public class RCon {
 			// Receive the response.
 			final byte[] receivedBytes = new byte[2048];
 			final int receivedBytesLength = inputStream.read(receivedBytes);
-			final ByteBuffer receivedBuffer = ByteBuffer.wrap(receivedBytes, 0, receivedBytesLength);
+			final ByteBuffer receivedBuffer = ByteBuffer.wrap(receivedBytes, 0,
+					receivedBytesLength);
 			receivedBuffer.order(ByteOrder.LITTLE_ENDIAN);
 			final int receivedLength = receivedBuffer.getInt();
 			final int receivedRequestId = receivedBuffer.getInt();
@@ -753,7 +782,8 @@ public class RCon {
 			receivedBuffer.get(receivedPayload);
 			receivedBuffer.get(new byte[2]);
 			if (receivedRequestId != requestId) {
-				final IncorrectRequestIdException exception = new IncorrectRequestIdException(receivedRequestId);
+				final IncorrectRequestIdException exception = new IncorrectRequestIdException(
+						receivedRequestId);
 				throw exception;
 			}
 		}
@@ -775,8 +805,10 @@ public class RCon {
 	 * @throws IncorrectRequestIdException
 	 *             The request id was not as expected.
 	 */
-	private String send(final int type, final String payload) throws IOException, IncorrectRequestIdException {
-		final String responsePayload = new String(send(type, payload.getBytes(StandardCharsets.US_ASCII)),
+	private String send(final int type, final String payload)
+			throws IOException, IncorrectRequestIdException {
+		final String responsePayload = new String(send(type,
+				payload.getBytes(StandardCharsets.US_ASCII)),
 				StandardCharsets.US_ASCII);
 		return responsePayload;
 	}
@@ -793,7 +825,8 @@ public class RCon {
 	 * @throws IncorrectRequestIdException
 	 *             The request id was not as expected.
 	 */
-	public String send(final String payload) throws IOException, IncorrectRequestIdException {
+	public String send(final String payload) throws IOException,
+			IncorrectRequestIdException {
 		final String response = send(COMMAND_TYPE, payload);
 		return response;
 	}
