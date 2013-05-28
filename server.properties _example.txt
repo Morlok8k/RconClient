@@ -1,0 +1,18 @@
+#Minecraft server properties
+
+#Note: This is not a complete "server.properties" file.
+#  Use this file as an example to edit your own file.
+#  The "rcon.password=", "rcon.port=", & "query.port=" are typically missing in most files.
+
+#Enable Rcon (and optionally Query)
+enable-rcon=true
+enable-query=true
+
+#Set a password for Rcon.
+#  (I recommend you use something other than "test")
+rcon.password=test
+
+#Set the ports for Rcon (and Query)
+#  These should stay on the default settings
+rcon.port=25575
+query.port=25565
